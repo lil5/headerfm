@@ -1,0 +1,19 @@
+if cdn
+	script(src='https://unpkg.com/jquery@1.12.4/dist/jquery.js')
+	script(src='https://unpkg.com/featherlight@1.7.1/release/featherlight.min.js')
+	script(src='https://unpkg.com/notifyjs-browser@0.4.2/dist/notify.js')
+	script(src='https://unpkg.com/code-prettify@0.1.0/loader/run_prettify.js')
+	style
+		!= "@import url('https://unpkg.com/featherlight@1.7.1/release/featherlight.min.css')"
+else
+	script(src='/_headerfm/external/jquery.min.js')
+	script(src='/_headerfm/external/featherlight.min.js')
+	script(src='/_headerfm/external/notify.js')
+	// script(src='/_headerfm/external/run_prettify.js')
+	style
+		!= "@import url('/_headerfm/external/featherlight.min.css');"
+
+script(src='/_headerfm/webdav.min.js')
+style
+	!= "@import url('/_headerfm/style.min.css');"
+<!--

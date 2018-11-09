@@ -1,0 +1,25 @@
+{
+  "scripts": {
+    "build:pug": "pug -O '{cdn: true}' < ./app/header.pug > ./build/header-cdn.html && pug -O '{cdn: false}' < ./app/header.pug > ./build/header.html",
+    "build:cp-dep": "cp {./node_modules/jquery/dist/jquery.min.js,./node_modules/featherlight/release/featherlight.min.css,./node_modules/featherlight/release/featherlight.min.js,./node_modules/notifyjs-browser/dist/notify.js,./node_modules/code-prettify/loader/run_prettify.js} ./build/external/",
+    "build:min:js": "uglifyjs -c -o ./build/webdav.min.js ./app/webdav-old.js",
+    "build:min:css": "cleancss -o ./build/style.min.css ./app/style.css",
+    "build": "npm run build:pug && npm run build:cp-dep && npm run build:min:js && npm run build:min:css",
+    "test:build": "docker build -t headerfm ./test/",
+    "test:clean": "./test/docker-clean.sh",
+    "test": "./test/docker-run.sh"
+  },
+  "devDependencies": {
+    "clean-css": "^4.2.1",
+    "clean-css-cli": "^4.2.1",
+    "pug": "^2.0.3",
+    "pug-cli": "^1.0.0-alpha6",
+    "uglify-js": "^3.4.9"
+  },
+  "dependencies": {
+    "code-prettify": "^0.1.0",
+    "featherlight": "1.7.1",
+    "jquery": "1.12.4",
+    "notifyjs-browser": "0.4.2"
+  }
+}
